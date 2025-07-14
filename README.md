@@ -25,6 +25,30 @@ rails db:migrate
 
 #---------------------------------------------------------------------------------------------------
 
+## 🛠️ Setup Instructions
+
+### 1. Clone the repository
+
+git clone https://github.com/yourusername/pet_api.git
+cd pet_api
+
+Install dependencies
+bundle install
+
+Setup the database
+rails db:create db:migrate
+
+Start Redis (for Sidekiq)
+redis-server
+
+Start Sidekiq in a separate terminal
+bundle exec sidekiq
+
+Start the Rails server
+rails server
+
+#---------------------------------------------------------------------------------------------------
+
 Assumption - All pets are vaccinated by default on creation, we can expire vaccination with API
 
 #---------------------------------------------------------------------------------------------------
