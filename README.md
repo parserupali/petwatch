@@ -88,6 +88,13 @@ Body -raw (json)
 
 #---------------------------------------------------------------------------------------------------
 
+Specific Pet details API
+
+GET
+http://localhost:3000/pets/3/
+
+#---------------------------------------------------------------------------------------------------
+
 Sidekiq output -
 
 2025-07-14T08:35:09.479Z pid=7276 tid=9zs class=VaccinationMailerJob jid=a31f21c8e88f2f3e184d94bc INFO: Simulated email: Vaccination for Puppy has expired.
