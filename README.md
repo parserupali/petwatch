@@ -24,6 +24,10 @@ rails db:create
 rails db:migrate
 
 #---------------------------------------------------------------------------------------------------
+
+Assumption - All pets are vaccinated by default on creation, we can expire vaccination with API
+
+#---------------------------------------------------------------------------------------------------
 API -
 
 Petwatch
