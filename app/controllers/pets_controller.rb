@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: %i[ show update destroy ]
+  before_action :set_pet, only: %i[ show update destroy expire_vaccination ]
 
   # GET /pets
   def index
@@ -28,6 +28,15 @@ class PetsController < ApplicationController
   def update
     if @pet.update(pet_params)
       render json: @pet
+    else
+      render json: @pet.errors, status: :unprocessable_entity
+    end
+  end
+
+  def expire_vaccination
+    if @pet.update(vaccinated: false)
+      VaccinationMailerJob.perform_async(@pet.id)
+      render json: { message: "Vaccination expired and notification job enqueued." }
     else
       render json: @pet.errors, status: :unprocessable_entity
     end
